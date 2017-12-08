@@ -3,8 +3,8 @@
 <template:addResources type="css" resources="animate.min.css"/>
 <template:addResources type="javascript" resources="jquery.min.js,jquery.appear.min.js"/>
 <c:set var="animation" value=" ${currentNode.properties['j:animation'].string}"/>
-<c:set var="animationDelay" value="${currentNode.properties['j:animationDelay'].long}"/>
-<c:set var="animationDuration" value="${currentNode.properties['j:animationDuration'].long}"/>
+<c:set var="animationDelay" value="${currentNode.properties['j:animationDelay'].double}"/>
+<c:set var="animationDuration" value="${currentNode.properties['j:animationDuration'].double}"/>
 <c:set var="animationIterationCount" value="${currentNode.properties['j:animationIterationCount'].string}"/>
 <c:set var="identifier" value="${currentNode.identifier}"/>
 
