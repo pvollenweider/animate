@@ -60,7 +60,7 @@
   <description>This module allow fun CSS animations on your page.</description>
   <scm>
     <connection>scm:git:git@github.com:pvollenweider/animate.git</connection>
-    <developerConnection>scm:git@github.com:pvollenweider/animate.git</developerConnection>
+    <developerConnection>scm:git:git@github.com:pvollenweider/animate.git</developerConnection>
     <url>https://github.com/pvollenweider/animate</url>
   </scm>
   <properties>
@@ -93,3 +93,4 @@
     </plugins>
   </build>
 </project>
+
