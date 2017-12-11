@@ -8,7 +8,7 @@
 <c:set var="animationIterationCount" value="${currentNode.properties['j:animationIterationCount'].string}"/>
 <c:set var="identifier" value="${currentNode.identifier}"/>
 
-<div id="${identifier}">
+<div id="${identifier}" style="${renderContext.editMode?'':'opacity: 0'}">
     ${wrappedContent}
 </div>
 <c:if test="${! renderContext.editMode}">
@@ -19,9 +19,17 @@
                 <c:if test="${! empty animationDuration}">
                 $("#${identifier}").css("animation-duration", "${animationDuration}s");
                 </c:if>
-                <c:if test="${! empty animationDelay && animationDelay > 0}">
-                $("#${identifier}").css("animation-delay", "${animationDelay}s");
-                </c:if>
+                <c:choose>
+                    <c:when test="${! empty animationDelay && animationDelay > 0}">
+                        $("#${identifier}").css("animation-delay", "${animationDelay}s");
+                        setTimeout(function() {
+                            $("#${identifier}").css("opacity", "1");
+                        }, ${animationDelay*1000});
+                    </c:when>
+                    <c:otherwise>
+                        $("#${identifier}").css("opacity", "1");
+                    </c:otherwise>
+                </c:choose>
                 <c:if test="${! empty animationIterationCount && animationIterationCount ne '1'}">
                 $("#${identifier}").css("animation-iteration-count", "${animationIterationCount}");
                 </c:if>
