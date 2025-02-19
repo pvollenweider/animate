@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <template:addResources type="css" resources="animate.min.css"/>
-<template:addResources type="javascript" resources="jquery.min.js,jquery.appear.min.js"/>
+<template:addResources type="javascript" resources="jquery.min.js"/>
+<template:addResources type="javascript" resources="jquery.appear.min.js" targetTag="BODY"/>
 <c:set var="animation" value=" ${currentNode.properties['j:animation'].string}"/>
 <c:set var="animationDelay" value="${currentNode.properties['j:animationDelay'].double}"/>
 <c:set var="animationDuration" value="${currentNode.properties['j:animationDuration'].double}"/>
@@ -14,7 +15,7 @@
     ${wrappedContent}
 </div>
 <c:if test="${! renderContext.editMode}">
-<template:addResources type="inline">
+<template:addResources type="inline" targetTag="BODY">
     <script>
         $(document).ready(function () {
             $('#animate-${identifier}').appear(function () {
